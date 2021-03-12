@@ -1,0 +1,53 @@
+@charset "utf-8";
+
+body {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+
+#cadastroEnum{
+	display: flex;
+	flex-direction: row;
+	margin-top: 40px
+}
+
+form{
+	text-align: left;
+	margin: 8px
+}
+
+#cadastro{
+	display:flex;
+	flex-direction: column;
+	flex:1.5;
+	padding: 25px
+}
+
+#numeroDeCadastrados{
+	display: flex;
+	flex:1;
+	flex-direction: column;
+	padding: 110px 20px;
+}
+
+#numeros{
+	font-size: 100px;
+	padding: 25px
+}
+
+button {
+	margin-top: 8px
+}
+
+header{
+	padding-top: 8px
+}
+
+#listagem{
+	margin-top: -0.5; 
+}
+
+span {
+	color: red;
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<meta charset="utf-8">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+	crossorigin="anonymous">
+
+<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+
+
+<title>Inserção e listagem de pessoas</title>
+</head>
+<body>
+	<header>
+		<h1>LISTAGEM E CADASTRO DE PESSOAS (BY RAMON BORGES)</h1>
+	</header>
+
+	<div id="cadastroEnum">
+		<div id="cadastro">
+			<h2>FICHA DE CADASTRO :</h2>
+			<div th:each = "m : ${msg}">
+				<span th:text = "${m}"></span>
+			</div>
+			<form action="salvarpessoa" method="post">
+
+				<div class="form-group">
+					<label for="formGroupExampleInput">Nome</label> <input type="text"
+						class="form-control" id="formGroupExampleInput" name="nome" maxlength="40" autocomplete="off">
+				</div>
+				<div class="form-group">
+					<label for="formGroupExampleInput2">Idade</label> <input
+						type="number" class="form-control" id="formGroupExampleInput2"
+						name="idade" autocomplete="off">
+				</div>
+
+				<div class="form-group">
+					<label for="formGroupExampleInput">CEP</label> <input type="text"
+						class="form-control" id="formGroupExampleInput"
+						placeholder="ex: 40000-000" name="cep" maxlength="9" autocomplete="off">
+				</div>
+
+				<div class="form-group">
+					<label for="formGroupExampleInput">Rua</label> <input type="text"
+						class="form-control" id="formGroupExampleInput"
+						placeholder="ex: Rua Grande, n 12" name="rua" maxlength="60" autocomplete="off">
+				</div>
+
+				<div class="form-group">
+					<label for="formGroupExampleInput">Bairro</label> <input
+						type="text" class="form-control" id="formGroupExampleInput"
+						name="bairro" maxlength="30" autocomplete="off">
+				</div>
+				<button type="submit" class="btn btn-primary btn-sm">Salvar</button>
+
+			</form>
+
+		</div>
+
+		<div id="numeroDeCadastrados">
+			<h2>TOTAL DE CADASTRADOS :</h2>
+			<h2 th:text="${npessoas}" id="numeros"></h2>
+		</div>
+	</div>
+
+
+
+	<div id="listagem">
+		<h2>CADASTRADOS:</h2>
+	</div>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th scope="col">Nome</th>
+				<th scope="col">Idade</th>
+				<th scope="col">CEP</th>
+				<th scope="col">Rua</th>
+				<th scope="col">Bairro</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="pessoa : ${pessoas}">
+				<td th:text="${pessoa.nome}"></td>
+				<td th:text="${pessoa.idade}"></td>
+				<td th:text="${pessoa.cep}"></td>
+				<td th:text="${pessoa.rua}"></td>
+				<td th:text="${pessoa.bairro}"></td>
+
+			</tr>
+
+		</tbody>
+	</table>
+
+
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+		crossorigin="anonymous"></script>
+</body>
+</html>
