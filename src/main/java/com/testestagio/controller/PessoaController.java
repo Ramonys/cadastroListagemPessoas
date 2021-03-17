@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -22,10 +23,10 @@ public class PessoaController {
 	PessoaRepository pessoaRep;
 	
 	
-	@PostMapping("salvarpessoa")
+	@PostMapping("/salvarpessoa")
 	public ModelAndView salvar(@Valid Pessoa pessoa, BindingResult bindingResult) {
 		if(bindingResult.hasErrors()) {
-			ModelAndView mv = new ModelAndView("index");
+			ModelAndView mv = new ModelAndView("pessoas/index");
 			Iterable<Pessoa> pessoaslist = pessoaRep.findAll();
 			Long numeroPessoas = pessoaRep.count();
 			mv.addObject("npessoas",numeroPessoas);
@@ -39,13 +40,25 @@ public class PessoaController {
 		}	
 		
 		pessoaRep.save(pessoa);
-		ModelAndView mv = new ModelAndView("/index");
+		ModelAndView mv = new ModelAndView("redirect:/verpessoas");
 		Iterable<Pessoa> pessoaslist = pessoaRep.findAll();
 		Long numeroPessoas = pessoaRep.count();
 		mv.addObject("npessoas",numeroPessoas);
 		mv.addObject("pessoas", pessoaslist);
 		return mv;
 	}
+	
+	@GetMapping("/verpessoas")
+	public ModelAndView verpessoas(Pessoa pessoa) {
+		ModelAndView mv = new ModelAndView("pessoas/index");
+		Iterable<Pessoa> pessoaslist = pessoaRep.findAll();
+		Long numeroPessoas = pessoaRep.count();
+		mv.addObject("npessoas",numeroPessoas);
+		mv.addObject("pessoas", pessoaslist);
+		return mv;
+			
+	}
+	
 	
 	
 	

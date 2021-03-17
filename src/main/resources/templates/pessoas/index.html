@@ -27,34 +27,34 @@
 			<div th:each = "m : ${msg}">
 				<span th:text = "${m}"></span>
 			</div>
-			<form action="salvarpessoa" method="post">
+			<form action="/salvarpessoa" method="post">
 
 				<div class="form-group">
 					<label for="formGroupExampleInput">Nome</label> <input type="text"
-						class="form-control" id="formGroupExampleInput" name="nome" maxlength="40" autocomplete="off">
+						class="form-control" id="formGroupExampleInput" name="nome" maxlength="40" >
 				</div>
 				<div class="form-group">
 					<label for="formGroupExampleInput2">Idade</label> <input
 						type="number" class="form-control" id="formGroupExampleInput2"
-						name="idade" autocomplete="off">
+						name="idade">
 				</div>
 
 				<div class="form-group">
 					<label for="formGroupExampleInput">CEP</label> <input type="text"
 						class="form-control" id="formGroupExampleInput"
-						placeholder="ex: 40000-000" name="cep" maxlength="9" autocomplete="off">
+						placeholder="ex: 40000-000" name="cep" maxlength="9" >
 				</div>
 
 				<div class="form-group">
 					<label for="formGroupExampleInput">Rua</label> <input type="text"
 						class="form-control" id="formGroupExampleInput"
-						placeholder="ex: Rua Grande, n 12" name="rua" maxlength="60" autocomplete="off">
+						placeholder="ex: Rua Grande, n 12" name="rua" maxlength="60" >
 				</div>
 
 				<div class="form-group">
 					<label for="formGroupExampleInput">Bairro</label> <input
 						type="text" class="form-control" id="formGroupExampleInput"
-						name="bairro" maxlength="30" autocomplete="off">
+						name="bairro" maxlength="30" >
 				</div>
 				<button type="submit" class="btn btn-primary btn-sm">Salvar</button>
 
