@@ -1,6 +1,4 @@
 # cadastroListagemPessoas
-Vídeo do sistema concluído
-https://www.youtube.com/watch?v=gG9NFFaiEsk
 
 Atividade: 
 Criar um sistema com spring boot e thymeleaf e nele:
